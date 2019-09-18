@@ -1,0 +1,2 @@
+rootProject.name = 'ecommerce-order-query-service'
+include 'ecommerce-order-query-service-api','ecommerce-order-query-service-sdk'
