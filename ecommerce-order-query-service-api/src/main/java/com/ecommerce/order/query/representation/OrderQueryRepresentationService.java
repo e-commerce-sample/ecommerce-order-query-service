@@ -4,6 +4,7 @@ import com.ecommerce.order.query.sdk.representation.order.OrderWithProductRepres
 import com.ecommerce.order.query.sdk.representation.order.Product;
 import com.ecommerce.order.sdk.representation.order.OrderRepresentation;
 import com.ecommerce.product.sdk.representation.product.ProductRepresentation;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
@@ -11,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Component
 public class OrderQueryRepresentationService {
     private RestTemplate restTemplate;
@@ -53,5 +55,6 @@ public class OrderQueryRepresentationService {
 
         );
         dao.save(order);
+        log.info("CQRS synced order {}.",orderId);
     }
 }
